@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exo API World Bank</title>
+    <link href="style.css" rel="stylesheet" type="text/css" >
+    <script src="main.js" defer></script>
+</head>
+
+<body>
+    <section class="search-from-api">
+        <form class="form" method="get">
+
+            <label for="text-input" hidden>Text input</label>
+            <input class="text-input" name="text-input" type="text" maxlength="3" placeholder="Enter country iso3 code"/>
+
+            <label for="select-indicator" hidden>Select indicator </label>
+            <select class="select" name="select-indicator" required>
+                <option value="" selected>Please select an indicator : </option>
+                <option value="NY.GDP.MKTP.CD">GDP - Gross Domestic Product</option>
+                <option value="NE.IMP.GNFS.CD">Imports of goods and services</option>
+                <option value="NY.ADJ.NNTY.PC.CD">Adjusted net national income per capita</option>
+            </select>
+
+            <p class="message-input-invalide" hidden>Code ISO (3 caractères requis) invalide. Veuillez réessayer.</p>
+        </form>
+
+        <p class="url" hidden></p>
+
+        <table class="table">
+            <thead>
+                <th class="table-header" colspan="2" hidden></th>
+                <tr>
+                    <th>Year</th>
+                    <th>Value</th>
+                </tr>
+            </thead>
+            <tbody class="table-body">
+            </tbody>
+        </table>
+        
+    </section>
+</body>
+</html>

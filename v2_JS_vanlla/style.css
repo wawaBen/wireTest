@@ -1,0 +1,66 @@
+body {
+    margin: 0;
+    padding: 1em;
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 16px;
+}
+
+/* UTILISER gap AU LIEU DES MARGIN/PADDING !!!! */
+.search-from-api {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    row-gap: 1em;
+    padding: 1em;
+    background: lightgray;
+    border-radius: 2px;
+    box-shadow: 0px 5px 10px 0px rgb(116, 116, 116);
+    max-width: 480px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+select, input {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 16px;
+    padding: 0.5em;
+    border: 1px solid grey;
+
+}
+
+input:focus-visible,
+select:focus-visible {
+    outline-offset: -1px;
+    outline: 1px solid black;
+}
+
+table, th, td {
+    border: 1px solid grey;
+    background-color: white;
+    border-collapse:collapse;
+    padding: 0.5em;
+    word-wrap: break-word;
+}
+
+table td {
+    word-break: break-all; 
+}
+
+.message-input-invalide {
+    border: 1px solid grey;
+    background-color: white;
+    padding: 1em;
+}
+
+.url {
+    border: 1px solid grey;
+    margin: 0;
+    padding: 1em;
+    overflow-wrap: break-word;
+    background-color: white;
+}

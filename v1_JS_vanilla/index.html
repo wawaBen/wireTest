@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exo API world bank</title>
+    <link href="style.css" rel="stylesheet" type="text/css" >
+    <script src="main.js" defer></script>
+</head>
+
+<body>
+    <section id="search-from-API">
+        <form class="form" method="get">
+
+            <label for="text-input" hidden>Text input</label>
+            <input class="text-input" name="text-input" type="text" placeholder="Enter country name"/>
+
+            <label for="select-indicator" hidden>Select indicator </label>
+            <select class="select" name="select-indicator" required>
+                <option value="" selected>Please select an indicator : </option>
+                <option value="NY.GDP.MKTP.CD">GDP - Gross Domestic Product</option>
+                <option value="NE.IMP.GNFS.CD">Imports of goods and services</option>
+                <option value="NY.ADJ.NNTY.PC.CD">Adjusted net national income per capita</option>
+            </select>
+
+        </form>
+
+        <p class="url" hidden></p>
+
+        <table>
+            <thead>
+                <th class="table-header" colspan="2" hidden></th>
+                <tr>
+                    <th>Year</th>
+                    <th>Value</th>
+                </tr>
+            </thead>
+            <tbody class="table-body">
+            </tbody>
+        </table>
+        
+    </section>
+</body>
+</html>

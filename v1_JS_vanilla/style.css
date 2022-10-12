@@ -1,0 +1,33 @@
+body {
+    margin: 0;
+    padding: 1em;
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 16px;
+}
+
+/* UTILISER gap AU LIEU DES MARGIN/PADDING !!!! */
+
+input {
+    margin-right: 0.5em;
+}
+
+select, input {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 16px;
+    padding: 0.5em;
+}
+
+table {
+    margin-top: 1em;
+}
+
+table, th, td {
+    border: 1px solid black;
+    border-collapse:collapse;
+    padding: 0.5em;
+}
+
+.url {
+    word-wrap:normal;
+}

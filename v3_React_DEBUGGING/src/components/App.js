@@ -25,44 +25,51 @@ function App() {
     fetch(`https://api.worldbank.org/v2/country?per_page=1000&format=json`)
         .then(response => response.json())
         .then((response) => {
-            console.log(response[1]);
+            //console.log(response[1]);
             setIsoFilter(response[1].map( ({ id, name })  => ({id, name}) ));
         })
 }, [])
 
+// USEEFFECT RESOUT LE PB DE DESYNCHRO, QD CONDITION
+// REMPLIE, MAJ AFFICHAGE 
+useEffect(()=> {
+  if (matchingIso !== "" && selectedValue !== "") {
+    searchApi(matchingIso, selectedValue);
+    console.log(matchingIso);
+    console.log(selectedValue);
+  }
+}, [matchingIso, selectedValue]);
+
+useEffect(()=> {
+  if (searchInput !== '') {
+    const filteredData = isoFilter.filter((item) => {
+        return item.id.toLowerCase().includes(searchInput.toLowerCase()) 
+    })
+    //console.log(isoFilter);
+    //console.log(filteredData);
+    console.log(filteredData[0].id);
+    setMatchingIso(`${filteredData[0].id}`);
+    //console.log(matchingIso);
+}
+}, [searchInput]);
+
+
   const indicatorChange = (value) => {
       setSelectedValue(value);
       console.log(selectedValue);
-
-    if (searchInput !== "" && selectedValue !== "") {
-      searchApi(matchingIso, selectedValue);
-      console.log(matchingIso);
-      console.log(selectedValue);
-    }
+    //
   }
 
-  // FONCTION RECHERCHE DANS DATA
-  // ET SET STATE 
+  // FONCTION VERIF LONGUEUR INPUT 
+  // ET SET STATE setSearchInput
   const searchItems = (searchValue) => {
+    console.log(searchValue);
+    console.log(searchValue.length);
     if (searchValue.length === 3) {
-      setSearchInput(searchValue)
+      console.log("TEST LONGUEUR 3");
+      setSearchInput(searchValue);
     }
-    if (searchInput !== '') {
-        const filteredData = isoFilter.filter((item) => {
-            return item.id.toLowerCase().includes(searchInput.toLowerCase()) 
-        })
-        console.log(isoFilter);
-        console.log(filteredData);
-        console.log(filteredData[0].id);
-        setMatchingIso(`${filteredData[0].id}`);
-        //console.log(matchingIso);
-    }
-
-    if (searchInput !== "" && selectedValue !== "") {
-      searchApi(matchingIso, selectedValue);
-      console.log(matchingIso);
-      console.log(selectedValue);
-    }
+    //
 }
 
 return (
@@ -75,7 +82,7 @@ return (
           variant="outlined"
           fullWidth
           placeholder='Search...'
-          inputProps={{ maxLength: 4}}
+          inputProps={{ maxLength: 3}}
       />
 
       <label htmlFor="select-indicator" hidden>Select an indicator</label>
@@ -94,7 +101,7 @@ return (
         <tbody>
           {searchInput.length === 3 ? (
               APIData.map((item) => {
-                console.log(item);
+                console.log(item.countryiso3code);
                 if (item.value === "" || item.value === null) {
                   return (
                     <tr key={item.date}>
